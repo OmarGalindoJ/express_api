@@ -9,6 +9,8 @@ const port = 3000
 //ESTO ES UN ENDPOINT
 //routes
 //Methods HTTP : GET, POST, PUT, DELETE
+
+//METODO GET: REGRESAR INFORMACIÓN
 app.get('/v1/explorers', (req, res) => {
     console.log(`GET Explorers V1 API ${new Date()}`)
     const explorer1 = {id: 1, name: "Explorer1"}
@@ -26,11 +28,28 @@ app.get('/v1/explorers/:id', (req, res) => {
 })
 
 
+//MÉTODO POST: AGREGAR INFORMACIÓN
 app.post('/v1/explorers', (req, res) => {
     console.log(`POST Explorers V1 API ${new Date()}`)
     //Agregar la lógica para persistir
     console.log(req.body) //parámetros del request
     res.status(201).json({ message: "Creado exitosamente"})
+})
+
+//MÉTODO PUT: ACTUALIZAR UN REGISTRO
+app.put('/v1/explorers/:id', (req, res) => {
+    console.log(`PUT Explorers V1 API ${new Date()}`)
+    console.log(req.body) //parámetros para actualizar
+    console.log(req.params.id) //query params
+    //Agregar la lógica para actualizar
+    res.status(200).json({ message: "Actualizado exitosamente"})
+})
+
+//MÉTODO DELETE: ELIMINAR UN REGISTRO
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`DELETE Explorers V1 API ${new Date()}`)
+    //Agregar la lógica para eliminar el registro enviado
+    res.status(200).json({ message: "Se eliminó exitosamente"})
 })
 
 //Con esto inicializamos esta app 
