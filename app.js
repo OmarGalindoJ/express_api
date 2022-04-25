@@ -18,6 +18,20 @@ app.get('/v1/explorers', (req, res) => {
     res.status(200).json(explorers)
 })
 
+app.get('/v1/explorers/:id', (req, res) => {
+    console.log(`GET BY ID Explorers V1 API ${new Date()}`)
+    const explorer1 = {id: 1, name: "Explorer1"}
+    //HTTP CODE STATUS: 200
+    res.status(200).json(explorer1)
+})
+
+
+app.post('/v1/explorers', (req, res) => {
+    console.log(`POST Explorers V1 API ${new Date()}`)
+    //Agregar la lógica para persistir
+    console.log(req.body) //parámetros del request
+    res.status(201).json({ message: "Creado exitosamente"})
+})
 
 //Con esto inicializamos esta app 
 app.listen(port, () => {
